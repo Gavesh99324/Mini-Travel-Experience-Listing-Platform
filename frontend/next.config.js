@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export', // Enable static export for Netlify
   eslint: {
     // Don't fail build on ESLint warnings
     ignoreDuringBuilds: true,
   },
   images: {
+    unoptimized: true, // Required for static export
     remotePatterns: [
       {
         protocol: 'https',
@@ -16,11 +18,6 @@ const nextConfig = {
         port: '5000',
       },
     ],
-  },
-  experimental: {
-    serverActions: {
-      allowedOrigins: ['localhost:3000', 'localhost:5000'],
-    },
   },
 };
 
